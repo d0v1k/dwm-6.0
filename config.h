@@ -83,7 +83,7 @@ static const Tag tags[] = {
 	{ MODKEY|ControlMask|ShiftMask, KEY,      toggletag,      {.ui = 1 << TAG} },
 
 /* commands */
-static const char terminal[]       = "st";
+static const char terminal[]       = "urxvtcd";
 static const char scratchpadname[] = "scratchy";
 static const char *dmenucmd[]      = { "dmenu_run", "-i", "-p", "Run command:", "-fn", font, "-nb", colors[0][ColBG], "-nf", colors[0][ColFG],"-sb", colors[1][ColBG], "-sf", colors[1][ColFG], NULL };
 static const char *termcmd[]       = { terminal, NULL };

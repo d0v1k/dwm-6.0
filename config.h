@@ -45,6 +45,7 @@ static const Rule rules[] = {
 	{ "Pidgin",       NULL,        "Pidgin",   1 << 3,       True,        True,       -1 },
 	{ "Gyachi",       NULL,        NULL,       1 << 3,       False,       False,      -1 },
 	{ "Skype",        NULL,        NULL,       1 << 3,       False,       False,      -1 },
+    { "Irssi",        NULL,        NULL,       1 << 3,       False,       False,      -1 },
 };
 
 /* layout(s) */
@@ -98,6 +99,7 @@ static const char *altbrowsercmd[] = { "chromium", NULL };
 static const char *secbrowsercmd[] = { "opera", NULL };
 static const char *editorcmd[]     = { "komodoedit", NULL };
 static const char *imcmd[]         = { "pidgin", NULL };
+static const char *irssicmd[]      = { "irssi", NULL };
 static const char *vboxcmd[]       = { "VirtualBox", NULL };
 static const char *volmcmd[]       = { "amixer", "-q", "sset", "Master", "toggle", NULL };
 static const char *voldcmd[]       = { "amixer", "-q", "sset", "Master", "1-", "unmute", NULL };
@@ -130,6 +132,7 @@ static Key keys[] = {
 	{ MODKEY,                       XK_o,       spawn,          {.v = secbrowsercmd } },
 	{ MODKEY,                       XK_e,       spawn,          {.v = editorcmd } },
 	{ MODKEY,                       XK_p,       spawn,          {.v = imcmd } },
+    { MODKEY,                       XK_i,       spawn,          {.v = irssicmd } },
 	{ MODKEY,                       XK_v,       spawn,          {.v = vboxcmd } },
 	{ 0,                            0x1008ff12, spawn,          {.v = volmcmd } },
 	{ 0,                            0x1008ff11, spawn,          {.v = voldcmd } },

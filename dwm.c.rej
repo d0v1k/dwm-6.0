@@ -1,0 +1,10 @@
+--- b/dwm.c	2013-02-11 22:11:39.184773229 +0200
++++ a/dwm.c	2013-02-11 22:11:39.182773229 +0200
+@@ -270,7 +270,6 @@ static void cycle(const Arg *arg);
+ static int shifttag(int dist);
+ static void tagcycle(const Arg *arg);
+ static void gaplessgrid(Monitor *m);
+-static void pidgin(Monitor *m);
+ 
+ /* variables */
+ static const char broken[] = "broken";

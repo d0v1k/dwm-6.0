@@ -13,11 +13,11 @@ static const char colors[MAXCOLORS][ColLast][8] = {
 	{ "#222222", "#7E62B3", "#1A1A1A" }, /* 6 = magenta */
 	{ "#222222", "#899CA1", "#1A1A1A" }, /* 7 = grey */
 };
-static const unsigned int borderpx  = 2;        /* border pixel of windows */
+static const unsigned int borderpx  = 1;        /* border pixel of windows */
 static const unsigned int snap      = 8;        /* snap pixel */
 static const Bool showbar           = True;     /* False means no bar */
-static const Bool showsystray       = True;     /* False means no systray */
-static const Bool topbar            = True;     /* False means bottom bar */
+static const Bool showsystray       = False;    /* False means no systray */
+static const Bool topbar            = True;    /* False means bottom bar */
 static const Bool clicktofocus      = True;     /* Change focus only on click */
 static const Bool viewontag         = True;     /* Switch view on tag switch */
 
@@ -45,6 +45,7 @@ static const Rule rules[] = {
 	{ "Pidgin",       NULL,        "Pidgin",   1 << 3,       True,        True,       -1 },
 	{ "Gyachi",       NULL,        NULL,       1 << 3,       False,       False,      -1 },
 	{ "Skype",        NULL,        NULL,       1 << 3,       False,       False,      -1 },
+    { NULL,           NULL,        "irssi",    1 << 3,       False,       False,      -1 },
     { "Irssi",        NULL,        NULL,       1 << 3,       False,       False,      -1 },
 };
 
@@ -68,7 +69,7 @@ static const Tag tags[] = {
 	/* name       layout           mfact    nmaster */
 	{ "main",     &layouts[4],     -1,      -1 },
 	{ "term",     &layouts[4],     -1,      -1 },
-	{ "web",      &layouts[1],     -1,      -1 },
+	{ "www",      &layouts[1],     -1,      -1 },
 	{ "im",       &layouts[5],     0.83,    -1 },
 	{ "dld",      &layouts[4],     -1,      -1 },
 	{ "misc",     &layouts[4],     -1,      -1 },
@@ -90,7 +91,7 @@ static const char *dmenucmd[]      = { "dmenu_run", "-i", "-p", "Run command:", 
 static const char *termcmd[]       = { terminal, NULL };
 static const char *tmuxcmd[]       = { terminal, "-e", "tmux", NULL };
 static const char *musiccmd[]      = { terminal, "-e", "ncmpcpp", NULL };
-static const char *scratchpadcmd[] = { terminal, "-name", scratchpadname, "-geometry", "150x40", NULL };
+static const char *scratchpadcmd[] = { terminal, "-name", scratchpadname, "-geometry", "80x40", NULL };
 static const char *filemancmd[]    = { "dolphin", NULL };
 static const char *browserfcmd[]   = { "firefox", "-p", "default", NULL };
 static const char *browserwcmd[]   = { "firefox", "-p", "work", NULL };
@@ -99,6 +100,7 @@ static const char *altbrowsercmd[] = { "chromium", NULL };
 static const char *secbrowsercmd[] = { "opera", NULL };
 static const char *editorcmd[]     = { "komodoedit", NULL };
 static const char *imcmd[]         = { "pidgin", NULL };
+static const char *irccmd[]        = { terminal, "-e", "irssi", NULL };
 static const char *irssicmd[]      = { "irssi", NULL };
 static const char *vboxcmd[]       = { "VirtualBox", NULL };
 static const char *volmcmd[]       = { "amixer", "-q", "sset", "Master", "toggle", NULL };
@@ -132,7 +134,7 @@ static Key keys[] = {
 	{ MODKEY,                       XK_o,       spawn,          {.v = secbrowsercmd } },
 	{ MODKEY,                       XK_e,       spawn,          {.v = editorcmd } },
 	{ MODKEY,                       XK_p,       spawn,          {.v = imcmd } },
-    { MODKEY,                       XK_i,       spawn,          {.v = irssicmd } },
+    { MODKEY,                       XK_i,       spawn,          {.v = irccmd } },
 	{ MODKEY,                       XK_v,       spawn,          {.v = vboxcmd } },
 	{ 0,                            0x1008ff12, spawn,          {.v = volmcmd } },
 	{ 0,                            0x1008ff11, spawn,          {.v = voldcmd } },
